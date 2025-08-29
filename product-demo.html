@@ -72,16 +72,16 @@
         <div class="glass neon rounded-2xl p-4 md:p-6">
           <!-- Mock hero preview (4 thumbnails) -->
           <div class="grid grid-cols-2 gap-4">
-            <button data-view="assets/demo/dashboard.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть Dashboard">
+            <button data-view="assets/demo/dashboard.webp" data-caption="Dashboard — список капсул" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть Dashboard">
               <img loading="lazy" src="assets/demo/dashboard.webp" alt="Frozen Capsules — Dashboard" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
             </button>
-            <button data-view="assets/demo/create.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Создать капсулу">
+            <button data-view="assets/demo/create.webp" data-caption="Создать капсулу — выбор параметров" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Создать капсулу">
               <img loading="lazy" src="assets/demo/create.webp" alt="Frozen Capsules — Создать капсулу" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
             </button>
-            <button data-view="assets/demo/join.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Присоединиться">
+            <button data-view="assets/demo/join.webp" data-caption="Присоединиться — депозит и условия" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Присоединиться">
               <img loading="lazy" src="assets/demo/join.webp" alt="Frozen Capsules — Присоединиться к капсуле" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
             </button>
-            <button data-view="assets/demo/mine.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Моя капсула">
+            <button data-view="assets/demo/mine.webp" data-caption="Моя капсула — баланс, статус, таймер" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Моя капсула">
               <img loading="lazy" src="assets/demo/mine.webp" alt="Frozen Capsules — Моя капсула" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
             </button>
           </div>
@@ -108,7 +108,7 @@
               <h3 class="font-semibold">1 · Dashboard</h3>
               <span class="text-xs px-2 py-1 rounded-full bg-emerald-300/10 text-emerald-200 border border-emerald-300/30">Список капсул</span>
             </header>
-            <button data-view="assets/demo/dashboard.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+            <button data-view="assets/demo/dashboard.webp" data-caption="Dashboard — список капсул" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
               <img loading="lazy" src="assets/demo/dashboard.webp" alt="Frozen Capsules — Dashboard" class="w-full h-full object-cover"/>
             </button>
             <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
@@ -124,7 +124,7 @@
               <h3 class="font-semibold">2 · Создать капсулу</h3>
               <span class="text-xs px-2 py-1 rounded-full bg-cyan-300/10 text-cyan-200 border border-cyan-300/30">Форма</span>
             </header>
-            <button data-view="assets/demo/create.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+            <button data-view="assets/demo/create.webp" data-caption="Создать капсулу — выбор параметров" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
               <img loading="lazy" src="assets/demo/create.webp" alt="Frozen Capsules — Создать капсулу" class="w-full h-full object-cover"/>
             </button>
             <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
@@ -140,7 +140,7 @@
               <h3 class="font-semibold">3 · Присоединиться</h3>
               <span class="text-xs px-2 py-1 rounded-full bg-blue-300/10 text-blue-200 border border-blue-300/30">Депозит</span>
             </header>
-            <button data-view="assets/demo/join.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+            <button data-view="assets/demo/join.webp" data-caption="Присоединиться — депозит и условия" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
               <img loading="lazy" src="assets/demo/join.webp" alt="Frozen Capsules — Присоединиться к капсуле" class="w-full h-full object-cover"/>
             </button>
             <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
@@ -156,7 +156,7 @@
               <h3 class="font-semibold">4 · Моя капсула</h3>
               <span class="text-xs px-2 py-1 rounded-full bg-purple-300/10 text-purple-200 border border-purple-300/30">Статус</span>
             </header>
-            <button data-view="assets/demo/mine.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+            <button data-view="assets/demo/mine.webp" data-caption="Моя капсула — баланс, статус, таймер" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
               <img loading="lazy" src="assets/demo/mine.webp" alt="Frozen Capsules — Моя капсула" class="w-full h-full object-cover"/>
             </button>
             <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
@@ -200,11 +200,9 @@
       <div class="glass neon rounded-3xl p-6 md:p-10 text-center">
         <h3 class="text-2xl md:text-3xl font-extrabold mb-2">Готовы показать демо вашему CEO?</h3>
         <p class="text-slate-300/90">Отправим доступ к кликабельному прототипу и техописание по интеграции (Solana + Pyth).</p>
-        <div class="cta-row" style="display:grid;gap:12px;grid-template-columns:1fr">
-  <a class="btn" id="openTgDemo" href="https://t.me/EldarUBSZK" target="_blank" rel="noopener">
-    Связаться в Telegram
-  </a>
-</div>
+        <div class="grid gap-3">
+          <a class="px-5 py-3 rounded-xl bg-emerald-400/10 text-emerald-200 border border-emerald-300/30 hover:bg-emerald-400/20 transition" id="openTgDemo" href="https://t.me/EldarUBSZK" target="_blank" rel="noopener">Связаться в Telegram</a>
+        </div>
       </div>
     </div>
   </section>
@@ -220,11 +218,23 @@
     </div>
   </footer>
 
+  <!-- Lightbox overlay with nav + caption -->
+  <div id="viewer" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 p-4">
+    <button id="viewer-close" class="absolute top-4 right-4 px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20">✕</button>
+
+    <button id="viewer-prev" class="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20">‹</button>
+    <figure class="max-w-[92vw] max-h-[92vh] flex flex-col items-center gap-3">
+      <img id="viewer-img" src="" alt="Preview" class="max-w-full max-h-[80vh] rounded-xl border border-white/20 shadow-2xl"/>
+      <figcaption id="viewer-caption" class="text-slate-200 text-sm md:text-base text-center"></figcaption>
+    </figure>
+    <button id="viewer-next" class="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20">›</button>
+  </div>
+
   <script>
     // year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // simple carousel controls (защита от null на всякий случай)
+    // simple carousel controls
     const scroller = document.getElementById('carousel');
     document.getElementById('prev')?.addEventListener('click', () =>
       scroller.scrollBy({ left: -window.innerWidth * 0.6, behavior: 'smooth' })
@@ -233,27 +243,60 @@
       scroller.scrollBy({ left:  window.innerWidth * 0.6, behavior: 'smooth' })
     );
 
-    // lightbox
-    const viewer = document.getElementById('viewer');
-    const viewerImg = document.getElementById('viewer-img');
-    const closeBtn = document.getElementById('viewer-close');
-
-    document.querySelectorAll('[data-view]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        viewerImg.src = btn.dataset.view;
-        viewer.classList.remove('hidden');
-        viewer.classList.add('flex');
-      });
+    // Build unique gallery list from all [data-view]
+    const allBtns = Array.from(document.querySelectorAll('[data-view]'));
+    const seen = new Set();
+    const gallery = [];
+    const indexBySrc = new Map();
+    allBtns.forEach(btn => {
+      const src = btn.dataset.view;
+      if (!seen.has(src)) { seen.add(src); gallery.push(btn); indexBySrc.set(src, gallery.length - 1); }
     });
 
-    closeBtn.addEventListener('click', () => {
+    const viewer = document.getElementById('viewer');
+    const viewerImg = document.getElementById('viewer-img');
+    const viewerCaption = document.getElementById('viewer-caption');
+    const closeBtn = document.getElementById('viewer-close');
+    const prevBtn = document.getElementById('viewer-prev');
+    const nextBtn = document.getElementById('viewer-next');
+
+    let currentIndex = 0;
+
+    function openByIndex(i){
+      if (!gallery.length) return;
+      if (i < 0) i = gallery.length - 1;
+      if (i >= gallery.length) i = 0;
+      currentIndex = i;
+      const btn = gallery[currentIndex];
+      viewerImg.src = btn.dataset.view;
+      viewerCaption.textContent = btn.dataset.caption || btn.querySelector('img')?.alt || '';
+      viewer.classList.remove('hidden');
+      viewer.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeViewer(){
       viewer.classList.add('hidden');
       viewer.classList.remove('flex');
       viewerImg.src = '';
+      viewerCaption.textContent = '';
+      document.body.style.overflow = '';
+    }
+
+    // click bind on all preview buttons (works even if duplicates exist)
+    allBtns.forEach(btn => {
+      btn.addEventListener('click', () => openByIndex(indexBySrc.get(btn.dataset.view)) );
     });
 
-    viewer.addEventListener('click', (e) => {
-      if (e.target === viewer) closeBtn.click();
+    // overlay controls
+    closeBtn.addEventListener('click', closeViewer);
+    prevBtn.addEventListener('click', () => openByIndex(currentIndex - 1));
+    nextBtn.addEventListener('click', () => openByIndex(currentIndex + 1));
+    viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(); });
+    document.addEventListener('keydown', (e) => {
+      if (viewer.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeViewer();
+      if (e.key === 'ArrowLeft') openByIndex(currentIndex - 1);
+      if (e.key === 'ArrowRight') openByIndex(currentIndex + 1);
     });
   </script>
 
