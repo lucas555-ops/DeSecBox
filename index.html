@@ -438,6 +438,8 @@
       const open = navLinks.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+  </script>
+
   <script>
   (function(){
     const app = 'tg://resolve?domain=EldarUBSZK';
@@ -447,14 +449,12 @@
     btn.addEventListener('click', function(e){
       e.preventDefault();
       const t = Date.now();
-      // пробуем открыть приложение
       window.location.href = app;
-      // если не получилось — открываем веб
       setTimeout(() => {
         if (Date.now() - t < 1600) window.open(web, '_blank', 'noopener');
       }, 900);
     });
   })();
-</script>
+  </script>
 </body>
 </html>
