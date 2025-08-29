@@ -35,7 +35,7 @@
   <!-- Header -->
   <header class="sticky top-0 z-30 bg-gradient-to-b from-[#0A0F1F]/80 to-transparent backdrop-blur-sm">
     <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 group">
+      <a href="index.html" class="flex items-center gap-3 group">
         <div class="w-9 h-9 rounded-xl glass flex items-center justify-center neon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="opacity-90">
             <path d="M12 2L20 6V14L12 22L4 14V6L12 2Z" stroke="#9FE7D6" stroke-width="1.5"/>
@@ -220,47 +220,59 @@
     </div>
   </footer>
 
-  <!-- Lightbox -->
-  <div id="viewer" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 p-4">
-    <button id="viewer-close" class="absolute top-4 right-4 px-3 py-2 rounded-lg bg-white/10 text-white">✕</button>
-    <img id="viewer-img" src="" alt="Preview" class="max-w-full max-h-[90vh] rounded-xl border border-white/20 shadow-2xl"/>
-  </div>
-
   <script>
     // year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // simple carousel controls
+    // simple carousel controls (защита от null на всякий случай)
     const scroller = document.getElementById('carousel');
-    document.getElementById('prev').addEventListener('click', () => scroller.scrollBy({left: -window.innerWidth*0.6, behavior:'smooth'}));
-    document.getElementById('next').addEventListener('click', () => scroller.scrollBy({left: window.innerWidth*0.6, behavior:'smooth'}));
+    document.getElementById('prev')?.addEventListener('click', () =>
+      scroller.scrollBy({ left: -window.innerWidth * 0.6, behavior: 'smooth' })
+    );
+    document.getElementById('next')?.addEventListener('click', () =>
+      scroller.scrollBy({ left:  window.innerWidth * 0.6, behavior: 'smooth' })
+    );
 
     // lightbox
     const viewer = document.getElementById('viewer');
     const viewerImg = document.getElementById('viewer-img');
     const closeBtn = document.getElementById('viewer-close');
+
     document.querySelectorAll('[data-view]').forEach(btn => {
-      btn.addEventListener('click', () => { viewerImg.src = btn.dataset.view; viewer.classList.remove('hidden'); viewer.classList.add('flex'); });
+      btn.addEventListener('click', () => {
+        viewerImg.src = btn.dataset.view;
+        viewer.classList.remove('hidden');
+        viewer.classList.add('flex');
+      });
     });
-    closeBtn.addEventListener('click', () => { viewer.classList.add('hidden'); viewer.classList.remove('flex'); viewerImg.src=''; });
-    viewer.addEventListener('click', (e) => { if(e.target === viewer) { closeBtn.click(); } });
-  <script>
-    
-  <script>
-  (function(){
-    const app = 'tg://resolve?domain=EldarUBSZK';
-    const web = 'https://t.me/EldarUBSZK';
-    const btn = document.getElementById('openTgDemo');
-    if(!btn) return;
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      const t = Date.now();
-      window.location.href = app;
-      setTimeout(() => {
-        if (Date.now() - t < 1600) window.open(web, '_blank', 'noopener');
-      }, 900);
+
+    closeBtn.addEventListener('click', () => {
+      viewer.classList.add('hidden');
+      viewer.classList.remove('flex');
+      viewerImg.src = '';
     });
-  })();
-</script>
+
+    viewer.addEventListener('click', (e) => {
+      if (e.target === viewer) closeBtn.click();
+    });
+  </script>
+
+  <script>
+    // Telegram deep link (CTA)
+    (function(){
+      const app = 'tg://resolve?domain=EldarUBSZK';
+      const web = 'https://t.me/EldarUBSZK';
+      const btn = document.getElementById('openTgDemo');
+      if(!btn) return;
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        const t = Date.now();
+        window.location.href = app; // пробуем открыть приложение
+        setTimeout(() => {          // если не вышло — откроется веб
+          if (Date.now() - t < 1600) window.open(web, '_blank', 'noopener');
+        }, 900);
+      });
+    })();
+  </script>
 </body>
 </html>
