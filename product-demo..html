@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frozen Capsules · Product Demo</title>
+  <meta name="description" content="Как работает Frozen Capsules — демо интерфейса для партнёров и обменников" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --fc-bg: radial-gradient(1200px 800px at 10% -10%, rgba(74,178,242,.15), rgba(0,0,0,0)),
+               radial-gradient(1000px 700px at 90% 0%, rgba(74,242,194,.12), rgba(0,0,0,0)),
+               linear-gradient(180deg,#0A0F1F 0%, #001C41 100%);
+      --glass: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --glow-mint: 0 0 32px rgba(74,242,194,.35);
+      --glow-blue: 0 0 32px rgba(74,179,242,.35);
+    }
+    body{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .fc-bg{ background-image: var(--fc-bg); }
+    .glass{ background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(10px); }
+    .neon{ box-shadow: var(--glow-mint), var(--glow-blue); }
+    .chip{ background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.14) }
+    .snap-x{ scroll-snap-type:x mandatory }
+    .snap-start{ scroll-snap-align:start }
+    .tag{ border:1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.06) }
+    .grad-text{ background: linear-gradient(90deg,#e8faff,#c8fff0); -webkit-background-clip:text; background-clip:text; color: transparent; }
+    .ring-mint{ box-shadow: 0 0 0 2px rgba(74,242,194,.35) inset; }
+  </style>
+</head>
+<body class="fc-bg text-slate-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-gradient-to-b from-[#0A0F1F]/80 to-transparent backdrop-blur-sm">
+    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl glass flex items-center justify-center neon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="opacity-90">
+            <path d="M12 2L20 6V14L12 22L4 14V6L12 2Z" stroke="#9FE7D6" stroke-width="1.5"/>
+            <path d="M8 9.5L12 12L16 9.5" stroke="#77C8F2" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm tracking-wide uppercase text-slate-300">Frozen Capsules</div>
+          <div class="-mt-0.5 text-[10px] text-slate-400">Lock crypto until prophecy is fulfilled</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="#flow" class="px-3 py-2 rounded-lg tag hover:bg-white/10">Product Demo</a>
+        <a href="#value" class="px-3 py-2 rounded-lg tag hover:bg-white/10">Для партнёров</a>
+        <a href="#cta" class="px-3 py-2 rounded-lg tag hover:bg-white/10">Запросить интеграцию</a>
+      </nav>
+      <a href="#cta" class="px-4 py-2 rounded-xl bg-emerald-400/10 text-emerald-200 border border-emerald-300/30 hover:bg-emerald-400/20 transition">Связаться</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 pt-14 pb-10">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-3xl md:text-5xl font-black leading-tight grad-text">Product Demo · Frozen Capsules</h1>
+          <p class="mt-4 text-slate-300/90 text-lg">Как выглядит интерфейс: от списка капсул до участия и статуса разморозки. Премиальный Web3-дизайн, простая логика, доверие on‑chain.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="chip px-3 py-1 rounded-full text-sm">Glassmorphism</span>
+            <span class="chip px-3 py-1 rounded-full text-sm">Neon Mint/Blue</span>
+            <span class="chip px-3 py-1 rounded-full text-sm">Solana · Pyth Oracle</span>
+          </div>
+        </div>
+        <div class="glass neon rounded-2xl p-4 md:p-6">
+          <!-- Mock hero preview (4 thumbnails) -->
+          <div class="grid grid-cols-2 gap-4">
+            <button data-view="/assets/demo/dashboard.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть Dashboard">
+              <img loading="lazy" src="/assets/demo/dashboard.webp" alt="Frozen Capsules — Dashboard" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
+            </button>
+            <button data-view="/assets/demo/create.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Создать капсулу">
+              <img loading="lazy" src="/assets/demo/create.webp" alt="Frozen Capsules — Создать капсулу" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
+            </button>
+            <button data-view="/assets/demo/join.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Присоединиться">
+              <img loading="lazy" src="/assets/demo/join.webp" alt="Frozen Capsules — Присоединиться к капсуле" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
+            </button>
+            <button data-view="/assets/demo/mine.webp" class="rounded-xl glass aspect-[4/3] overflow-hidden group" aria-label="Открыть экран Моя капсула">
+              <img loading="lazy" src="/assets/demo/mine.webp" alt="Frozen Capsules — Моя капсула" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"/>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow Gallery -->
+  <section id="flow" class="py-8 md:py-14">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex items-end justify-between mb-4">
+        <h2 class="text-2xl md:text-3xl font-extrabold">UI Flow · 4 экрана</h2>
+        <div class="hidden md:flex gap-2">
+          <button id="prev" class="px-3 py-2 rounded-lg tag">←</button>
+          <button id="next" class="px-3 py-2 rounded-lg tag">→</button>
+        </div>
+      </div>
+      <div id="carousel" class="flex gap-4 overflow-x-auto snap-x pb-2" tabindex="0" aria-label="Галерея экранов">
+        <!-- Card 1 -->
+        <article class="min-w-[85%] md:min-w-[48%] lg:min-w-[32%] snap-start">
+          <div class="glass rounded-2xl p-4 md:p-6 h-full">
+            <header class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold">1 · Dashboard</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-emerald-300/10 text-emerald-200 border border-emerald-300/30">Список капсул</span>
+            </header>
+            <button data-view="/assets/demo/dashboard.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+              <img loading="lazy" src="/assets/demo/dashboard.webp" alt="Frozen Capsules — Dashboard" class="w-full h-full object-cover"/>
+            </button>
+            <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
+              <li>• Название, баланс, участники, статус</li>
+              <li>• Кнопки: Присоединиться · Детали</li>
+            </ul>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="min-w-[85%] md:min-w-[48%] lg:min-w-[32%] snap-start">
+          <div class="glass rounded-2xl p-4 md:p-6 h-full">
+            <header class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold">2 · Создать капсулу</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-cyan-300/10 text-cyan-200 border border-cyan-300/30">Форма</span>
+            </header>
+            <button data-view="/assets/demo/create.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+              <img loading="lazy" src="/assets/demo/create.webp" alt="Frozen Capsules — Создать капсулу" class="w-full h-full object-cover"/>
+            </button>
+            <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
+              <li>• Стоимость деплоя: 0.1 SOL</li>
+              <li>• Кнопка: Создать капсулу</li>
+            </ul>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="min-w-[85%] md:min-w-[48%] lg:min-w-[32%] snap-start">
+          <div class="glass rounded-2xl p-4 md:p-6 h-full">
+            <header class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold">3 · Присоединиться</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-blue-300/10 text-blue-200 border border-blue-300/30">Депозит</span>
+            </header>
+            <button data-view="/assets/demo/join.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+              <img loading="lazy" src="/assets/demo/join.webp" alt="Frozen Capsules — Присоединиться к капсуле" class="w-full h-full object-cover"/>
+            </button>
+            <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
+              <li>• Просмотр условий капсулы</li>
+              <li>• Кнопка: Присоединиться</li>
+            </ul>
+          </div>
+        </article>
+        <!-- Card 4 -->
+        <article class="min-w-[85%] md:min-w-[48%] lg:min-w-[32%] snap-start">
+          <div class="glass rounded-2xl p-4 md:p-6 h-full">
+            <header class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold">4 · Моя капсула</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-purple-300/10 text-purple-200 border border-purple-300/30">Статус</span>
+            </header>
+            <button data-view="/assets/demo/mine.webp" class="rounded-xl overflow-hidden border border-white/10 aspect-[4/3] block">
+              <img loading="lazy" src="/assets/demo/mine.webp" alt="Frozen Capsules — Моя капсула" class="w-full h-full object-cover"/>
+            </button>
+            <ul class="mt-4 space-y-1 text-sm text-slate-300/90">
+              <li>• Статус: 🔒 Заморожено / 🔓 Разморозка</li>
+              <li>• Таймер/условие удержания</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value for Partner -->
+  <section id="value" class="py-10 md:py-16">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Почему это важно для обменника</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div class="glass rounded-2xl p-5">
+          <div class="text-emerald-200 mb-2">🔥 Привлечение</div>
+          <p class="text-slate-300/90">Уникальный продукт приводит новых пользователей, создаёт инфоповоды и вирусные челленджи.</p>
+        </div>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-emerald-200 mb-2">⏳ Удержание</div>
+          <p class="text-slate-300/90">Игровая механика HODL и коллективные капсулы повышают удержание и LTV.</p>
+        </div>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-emerald-200 mb-2">❄️ Монетизация</div>
+          <p class="text-slate-300/90">Fee за создание, комиссия при выводе, кросс‑продажи покупки крипты.</p>
+        </div>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-emerald-200 mb-2">🚀 УТП</div>
+          <p class="text-slate-300/90">White‑label Capsules by <span class="text-slate-100 font-semibold">ваш бренд</span>; конкуренты не смогут быстро повторить.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="py-12 md:py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="glass neon rounded-3xl p-6 md:p-10 text-center">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-2">Готовы показать демо вашему CEO?</h3>
+        <p class="text-slate-300/90">Отправим доступ к кликабельному прототипу и техописание по интеграции (Solana + Pyth).</p>
+        <form class="mt-6 grid md:grid-cols-3 gap-3" onsubmit="event.preventDefault();
+          const b=document.getElementById('cta-btn'); b.innerText='Отправлено ✔️'; b.disabled=true;">
+          <input required placeholder="Имя" class="glass rounded-xl px-4 py-3 outline-none" />
+          <input required type="email" placeholder="Email" class="glass rounded-xl px-4 py-3 outline-none" />
+          <input placeholder="Telegram (@username)" class="glass rounded-xl px-4 py-3 outline-none" />
+          <button id="cta-btn" class="md:col-span-3 px-5 py-3 rounded-xl bg-emerald-400/10 text-emerald-200 border border-emerald-300/30 hover:bg-emerald-400/20 transition">Запросить интеграцию</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-slate-400 text-sm">
+      <div>© <span id="y"></span> Frozen Capsules · DeFi · Solana</div>
+      <div class="flex items-center gap-3">
+        <a href="#" class="tag px-3 py-1 rounded-full">Docs</a>
+        <a href="#" class="tag px-3 py-1 rounded-full">GitHub</a>
+        <a href="#" class="tag px-3 py-1 rounded-full">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="viewer" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-50 p-4">
+    <button id="viewer-close" class="absolute top-4 right-4 px-3 py-2 rounded-lg bg-white/10 text-white">✕</button>
+    <img id="viewer-img" src="" alt="Preview" class="max-w-full max-h-[90vh] rounded-xl border border-white/20 shadow-2xl"/>
+  </div>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // simple carousel controls
+    const scroller = document.getElementById('carousel');
+    document.getElementById('prev').addEventListener('click', () => scroller.scrollBy({left: -window.innerWidth*0.6, behavior:'smooth'}));
+    document.getElementById('next').addEventListener('click', () => scroller.scrollBy({left: window.innerWidth*0.6, behavior:'smooth'}));
+
+    // lightbox
+    const viewer = document.getElementById('viewer');
+    const viewerImg = document.getElementById('viewer-img');
+    const closeBtn = document.getElementById('viewer-close');
+    document.querySelectorAll('[data-view]').forEach(btn => {
+      btn.addEventListener('click', () => { viewerImg.src = btn.dataset.view; viewer.classList.remove('hidden'); viewer.classList.add('flex'); });
+    });
+    closeBtn.addEventListener('click', () => { viewer.classList.add('hidden'); viewer.classList.remove('flex'); viewerImg.src=''; });
+    viewer.addEventListener('click', (e) => { if(e.target === viewer) { closeBtn.click(); } });
+  </script>
+</body>
+</html>
+</html>
