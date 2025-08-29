@@ -200,13 +200,11 @@
       <div class="glass neon rounded-3xl p-6 md:p-10 text-center">
         <h3 class="text-2xl md:text-3xl font-extrabold mb-2">Готовы показать демо вашему CEO?</h3>
         <p class="text-slate-300/90">Отправим доступ к кликабельному прототипу и техописание по интеграции (Solana + Pyth).</p>
-        <form class="mt-6 grid md:grid-cols-3 gap-3" onsubmit="event.preventDefault();
-          const b=document.getElementById('cta-btn'); b.innerText='Отправлено ✔️'; b.disabled=true;">
-          <input required placeholder="Имя" class="glass rounded-xl px-4 py-3 outline-none" />
-          <input required type="email" placeholder="Email" class="glass rounded-xl px-4 py-3 outline-none" />
-          <input placeholder="Telegram (@username)" class="glass rounded-xl px-4 py-3 outline-none" />
-          <button id="cta-btn" class="md:col-span-3 px-5 py-3 rounded-xl bg-emerald-400/10 text-emerald-200 border border-emerald-300/30 hover:bg-emerald-400/20 transition">Запросить интеграцию</button>
-        </form>
+        <div class="cta-row" style="display:grid;gap:12px;grid-template-columns:1fr">
+  <a class="btn" id="openTgDemo" href="https://t.me/EldarUBSZK" target="_blank" rel="noopener">
+    Связаться в Telegram
+  </a>
+</div>
       </div>
     </div>
   </section>
@@ -246,6 +244,21 @@
     });
     closeBtn.addEventListener('click', () => { viewer.classList.add('hidden'); viewer.classList.remove('flex'); viewerImg.src=''; });
     viewer.addEventListener('click', (e) => { if(e.target === viewer) { closeBtn.click(); } });
-  </script>
+  <script>
+  (function(){
+    const app = 'tg://resolve?domain=EldarUBSZK';
+    const web = 'https://t.me/EldarUBSZK';
+    const btn = document.getElementById('openTgDemo');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const t = Date.now();
+      window.location.href = app;
+      setTimeout(() => {
+        if (Date.now() - t < 1600) window.open(web, '_blank', 'noopener');
+      }, 900);
+    });
+  })();
+</script>
 </body>
 </html>
